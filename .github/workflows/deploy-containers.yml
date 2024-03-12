@@ -6,6 +6,7 @@ jobs:
     test:
         environment: test #environment created in GitHub
         env:
+            MONGODB_CONNECTION_PROTOCOL: mongodb+srv
             MONGODB_CLUSTER_ADDRESS: cluster0.tjcxjtz.mongodb.net
             # MONGODB_USERNAME: gbandarudevops
             # MONGODB_PASSWORD: NQkLSelXmGMzYs6M
