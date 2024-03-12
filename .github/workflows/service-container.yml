@@ -1,17 +1,16 @@
 name: Deploying to Containers
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
 env:
     MONGODB_DB_NAME: gh-actions-docker
 jobs:
     test:
         environment: test #environment created in GitHub
+        #as per services environment
         env:
-            MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-            MONGODB_CLUSTER_ADDRESS: cluster0.tjcxjtz.mongodb.net
-            # MONGODB_USERNAME: gbandarudevops
-            # MONGODB_PASSWORD: NQkLSelXmGMzYs6M
-            MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }} #SECRETS CREATED IN ENVIRONMENT
-            MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} #SECRETS CREATED IN ENVIRONMENT
+            MONGODB_CONNECTION_PROTOCOL: mongodb
+            MONGODB_CLUSTER_ADDRESS: mongodb
+            MONGODB_USERNAME: root
+            MONGODB_PASSWORD: example
             PORT: 8080
         runs-on: ubuntu-latest
         container:
